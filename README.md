@@ -20,7 +20,7 @@ Initialize it using `register`, it allows only the `locale` option
 use EmanueleMinotto\FakerServiceProvider;
 
 $app->register(new FakerServiceProvider, array(
-    'locale' => 'it_IT' // Default en_US
+    'locale' => 'it_IT' // default: en_US
 ));
 ```
 
