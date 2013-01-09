@@ -1,0 +1,13 @@
+{
+    "name": "emanueleminotto/faker-service-provider",
+    "description": "Faker Service Provider for Silex",
+    "authors": [
+        {
+            "name": "Emanuele Minotto",
+            "email": "minottoemanuele@gmail.com"
+        }
+    ],
+    "require": {
+        "fzaninotto/faker": "1.1.*"
+    }
+}
