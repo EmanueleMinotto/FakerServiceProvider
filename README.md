@@ -28,8 +28,8 @@ From PHP
 ```php
 <?php
 
-$app->get('/hello', function () use ($app) {
-    return 'Hello ' . $app['faker']->name;
+$Application -> get('/hello', function () use ($Application) {
+    return 'Hello ' . $Application['faker'] -> name;
 });
 ```
 
