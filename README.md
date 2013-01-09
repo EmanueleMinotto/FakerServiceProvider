@@ -1,12 +1,10 @@
 FakerServiceProvider
 ====================
 
-Faker Service Provider for Silex.
-
-It depends on the [Faker](https://github.com/fzaninotto/Faker) library.
+A [Faker](https://github.com/fzaninotto/Faker) service provider for [Silex](http://silex.sensiolabs.org/).
 
 ## Install
-Install [Silex](http://silex.sensiolabs.org/) using [Composer](http://getcomposer.org/).
+Install Silex using [Composer](http://getcomposer.org/).
 
 Install the FakerServiceProvider adding `emanueleminotto/faker-service-provider` to your composer.json or from CLI:
 
