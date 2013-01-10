@@ -1,6 +1,7 @@
 {
     "name": "emanueleminotto/faker-service-provider",
     "description": "Faker Service Provider for Silex",
+    "license": "MIT",
     "authors": [
         {
             "name": "Emanuele Minotto",
