@@ -10,5 +10,8 @@
     ],
     "require": {
         "fzaninotto/faker": "1.1.*"
+    },
+    "autoload": {
+        "psr-0": { "EmanueleMinotto": "src/" }
     }
 }
