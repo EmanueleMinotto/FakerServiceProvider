@@ -19,7 +19,7 @@ Initialize it using `register`, it allows only the `locale` option
 
 use EmanueleMinotto\FakerServiceProvider;
 
-$app->register(new FakerServiceProvider, array(
+$app -> register(new FakerServiceProvider, array(
     'locale' => 'it_IT' // default: en_US
 ));
 ```
@@ -28,8 +28,8 @@ From PHP
 ```php
 <?php
 
-$Application -> get('/hello', function () use ($Application) {
-    return 'Hello ' . $Application['faker'] -> name;
+$app -> get('/hello', function () use ($app) {
+    return 'Hello ' . $app['faker'] -> name;
 });
 ```
 

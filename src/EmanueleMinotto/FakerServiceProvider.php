@@ -14,13 +14,13 @@ use Faker\Factory;
  */
 class FakerServiceProvider implements ServiceProviderInterface
 {
-    public function register(Application $Application)
+    public function register(Application $app)
     {
         // ...
     }
 
-    public function boot(Application $Application)
+    public function boot(Application $app)
     {
-        $Application['faker'] = Factory::create($Application['locale']);
+        $app['faker'] = Factory::create($app['locale']);
     }
 }
