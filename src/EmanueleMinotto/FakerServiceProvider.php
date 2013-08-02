@@ -2,13 +2,13 @@
 
 namespace EmanueleMinotto;
 
-use Silex\Application,
-    Silex\ServiceProviderInterface,
-    Faker\Factory;
+use Silex\Application;
+use Silex\ServiceProviderInterface;
+use Faker\Factory;
 
 /**
  * A Faker service provider for Silex
- * 
+ *
  * @author Emanuele Minotto <minottoemanuele@gmail.com>
  * @link http://silex.sensiolabs.org/doc/providers.html#creating-a-provider Creating a provider
  */
