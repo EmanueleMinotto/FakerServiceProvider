@@ -16,11 +16,11 @@ class FakerServiceProvider implements ServiceProviderInterface
 {
     public function register(Application $app)
     {
-        // ...
+        $app['faker'] = Factory::create($app['locale']);
     }
 
     public function boot(Application $app)
     {
-        $app['faker'] = Factory::create($app['locale']);
+        
     }
 }
