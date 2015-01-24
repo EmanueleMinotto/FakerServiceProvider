@@ -1,4 +1,4 @@
-FakerServiceProvider [![Build Status](https://travis-ci.org/EmanueleMinotto/FakerServiceProvider.svg?branch=1.0.0)](https://travis-ci.org/EmanueleMinotto/FakerServiceProvider)
+FakerServiceProvider [![Build Status](https://travis-ci.org/EmanueleMinotto/FakerServiceProvider.svg)](https://travis-ci.org/EmanueleMinotto/FakerServiceProvider)
 ====================
 
 A [Faker](https://github.com/fzaninotto/Faker) service provider for [Silex](http://silex.sensiolabs.org/).
