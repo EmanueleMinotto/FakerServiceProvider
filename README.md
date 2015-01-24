@@ -9,13 +9,13 @@ Install Silex using [Composer](http://getcomposer.org/).
 Install the FakerServiceProvider adding `emanueleminotto/faker-service-provider` to your composer.json or from CLI:
 
 ```
-$ php composer.phar require emanueleminotto/faker-service-provider:dev-master
+$ composer require emanueleminotto/faker-service-provider
 ```
 
 ## Usage
 Initialize it using `register`, it allows only the `locale` option
 ```php
-use EmanueleMinotto\FakerServiceProvider;
+use EmanueleMinotto\FakerServiceProvider\FakerServiceProvider;
 
 $app->register(new FakerServiceProvider, array(
     'locale' => 'it_IT' // default: en_US
