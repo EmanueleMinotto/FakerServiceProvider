@@ -15,21 +15,17 @@ $ php composer.phar require emanueleminotto/faker-service-provider:dev-master
 ## Usage
 Initialize it using `register`, it allows only the `locale` option
 ```php
-<?php
-
 use EmanueleMinotto\FakerServiceProvider;
 
-$app -> register(new FakerServiceProvider, array(
+$app->register(new FakerServiceProvider, array(
     'locale' => 'it_IT' // default: en_US
 ));
 ```
 
 From PHP
 ```php
-<?php
-
-$app -> get('/hello', function () use ($app) {
-    return 'Hello ' . $app['faker'] -> name;
+$app->get('/hello', function () use ($app) {
+    return 'Hello ' . $app['faker']->name;
 });
 ```
 

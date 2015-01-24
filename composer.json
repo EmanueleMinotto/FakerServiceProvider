@@ -1,19 +1,23 @@
 {
-    "name": "emanueleminotto/faker-service-provider",
-    "description": "Faker Service Provider for Silex",
-    "license": "MIT",
     "authors": [
         {
-            "name": "Emanuele Minotto",
-            "email": "minottoemanuele@gmail.com"
+            "email": "minottoemanuele@gmail.com",
+            "name": "Emanuele Minotto"
         }
     ],
-    "require": {
-        "fzaninotto/faker": "1.*"
-    },
     "autoload": {
-        "psr-0": {
-            "EmanueleMinotto": "src/"
+        "psr-4": {
+            "EmanueleMinotto\\FakerServiceProvider\\": "."
         }
+    },
+    "description": "Faker Service Provider for Silex",
+    "license": "MIT",
+    "name": "emanueleminotto/faker-service-provider",
+    "require": {
+        "fzaninotto/faker": "~1",
+        "silex/silex": "~1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.4"
     }
 }
