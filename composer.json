@@ -11,6 +11,11 @@
         }
     },
     "description": "Faker Service Provider for Silex",
+    "keywords": [
+        "faker",
+        "silex",
+        "service-provider"
+    ],
     "license": "MIT",
     "name": "emanueleminotto/faker-service-provider",
     "require": {
