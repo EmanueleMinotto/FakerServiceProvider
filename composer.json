@@ -23,6 +23,12 @@
         "silex/silex": "~1"
     },
     "require-dev": {
+        "emanueleminotto/faker-placehold-it-provider": "~1.0",
+        "fzaninotto/company-name-generator": "dev-master",
         "phpunit/phpunit": "~4.4"
+    },
+    "suggest": {
+        "emanueleminotto/faker-placehold-it-provider": "placehold.it provider",
+        "fzaninotto/company-name-generator": "generate names for english tech companies with class"
     }
 }

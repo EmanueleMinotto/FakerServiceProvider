@@ -20,9 +20,46 @@ class FakerServiceProviderTest extends PHPUnit_Framework_TestCase
     public function testRegisterServiceProvider()
     {
         $app = new Application();
-        $app->register(new FakerServiceProvider());
+        $app->register(new FakerServiceProvider(), array(
+            'locale' => 'ro_RO',
+        ));
+        $app->boot();
+
 
         $this->assertInstanceOf('Faker\\Generator', $app['faker']);
+        $this->assertContainsOnlyInstancesOf('Faker\\Provider\\Base', $app['faker']->getProviders());
+
+        $this->assertNotEmpty(array_filter($app['faker']->getProviders(), function ($provider) {
+            return $provider instanceof \Faker\Provider\ro_RO\Address;
+        }));
+    }
+
+    /**
+     * @covers ::boot
+     * @covers ::register
+     */
+    public function testServiceProviders()
+    {
+        $app = new Application();
+        $app->register(new FakerServiceProvider(), array(
+            'faker.providers' => array(
+                'CompanyNameGenerator\\FakerProvider',
+                'EmanueleMinotto\\Faker\\PlaceholdItProvider',
+            ),
+        ));
+        $app->boot();
+
+
+        $this->assertInstanceOf('Faker\\Generator', $app['faker']);
+
+        $this->assertCount(2, $app['faker.providers']);
+        $this->assertContainsOnlyInstancesOf('Faker\\Provider\\Base', $app['faker']->getProviders());
+
+        $this->assertNotEmpty(array_filter($app['faker']->getProviders(), function ($provider) {
+            return $provider instanceof \CompanyNameGenerator\FakerProvider;
+        }));
+
+        $this->assertSame('http://placehold.it/50.gif', $app['faker']->imageUrl(50));
     }
 
     /**
@@ -41,6 +78,7 @@ class FakerServiceProviderTest extends PHPUnit_Framework_TestCase
 
         $request = Request::create('/');
         $response = $app->handle($request);
+        
 
         $this->assertTrue($response->isOk());
         $this->assertRegExp('/\d+/', $response->getContent());

@@ -20,7 +20,8 @@ class FakerServiceProvider implements ServiceProviderInterface
      */
     public function register(Application $app)
     {
-        $app['faker'] = Factory::create($app['locale']);
+        $app['faker'] = null;
+        $app['faker.providers'] = array();
     }
 
     /**
@@ -28,5 +29,18 @@ class FakerServiceProvider implements ServiceProviderInterface
      */
     public function boot(Application $app)
     {
+        // generator instance
+        $app['faker'] = $app->share(function ($app) {
+            return Factory::create($app['locale']);
+        });
+
+        // third-party providers
+        $providers = array_filter((array) $app['faker.providers'], function ($provider) {
+            return class_exists($provider) && is_subclass_of($provider, 'Faker\\Provider\\Base');
+        });
+
+        foreach ($providers as $provider) {
+            $app['faker']->addProvider(new $provider($app['faker']));
+        }
     }
 }

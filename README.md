@@ -18,7 +18,11 @@ Initialize it using `register`, it allows only the `locale` option
 use EmanueleMinotto\FakerServiceProvider\FakerServiceProvider;
 
 $app->register(new FakerServiceProvider(), array(
-    'locale' => 'it_IT' // default: en_US
+    'faker.providers' => array(
+        'CompanyNameGenerator\\FakerProvider',
+        'EmanueleMinotto\\Faker\\PlaceholdItProvider',
+    ), // default empty
+    'locale' => 'it_IT', // default: en_US
 ));
 ```
 
