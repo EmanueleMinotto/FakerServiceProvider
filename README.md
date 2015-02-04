@@ -13,7 +13,7 @@ $ composer require emanueleminotto/faker-service-provider
 ```
 
 ## Usage
-Initialize it using `register`, it allows only the `locale` option
+Initialize it using `register`
 ```php
 use EmanueleMinotto\FakerServiceProvider\FakerServiceProvider;
 
