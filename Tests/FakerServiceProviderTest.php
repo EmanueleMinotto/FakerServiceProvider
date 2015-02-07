@@ -25,7 +25,6 @@ class FakerServiceProviderTest extends PHPUnit_Framework_TestCase
         ));
         $app->boot();
 
-
         $this->assertInstanceOf('Faker\\Generator', $app['faker']);
         $this->assertContainsOnlyInstancesOf('Faker\\Provider\\Base', $app['faker']->getProviders());
 
@@ -48,7 +47,6 @@ class FakerServiceProviderTest extends PHPUnit_Framework_TestCase
             ),
         ));
         $app->boot();
-
 
         $this->assertInstanceOf('Faker\\Generator', $app['faker']);
 
@@ -78,7 +76,6 @@ class FakerServiceProviderTest extends PHPUnit_Framework_TestCase
 
         $request = Request::create('/');
         $response = $app->handle($request);
-        
 
         $this->assertTrue($response->isOk());
         $this->assertRegExp('/\d+/', $response->getContent());
