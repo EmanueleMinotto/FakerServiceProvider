@@ -1,23 +1,19 @@
 {
-    "authors": [
-        {
-            "email": "minottoemanuele@gmail.com",
-            "name": "Emanuele Minotto"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "EmanueleMinotto\\FakerServiceProvider\\": "."
-        }
-    },
+    "name": "emanueleminotto/faker-service-provider",
     "description": "Faker Service Provider for Silex",
     "keywords": [
         "faker",
-        "silex",
-        "service-provider"
+        "service-provider",
+        "silex"
     ],
     "license": "MIT",
-    "name": "emanueleminotto/faker-service-provider",
+    "authors": [
+        {
+            "name": "Emanuele Minotto",
+            "email": "minottoemanuele@gmail.com",
+            "homepage": "http://www.emanueleminotto.it"
+        }
+    ],
     "require": {
         "fzaninotto/faker": "~1.4",
         "silex/silex": "~1"
@@ -30,5 +26,10 @@
     "suggest": {
         "emanueleminotto/faker-placehold-it-provider": "placehold.it provider",
         "fzaninotto/company-name-generator": "generate names for english tech companies with class"
+    },
+    "autoload": {
+        "psr-4": {
+            "EmanueleMinotto\\FakerServiceProvider\\": "."
+        }
     }
 }
