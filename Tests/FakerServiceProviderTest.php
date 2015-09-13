@@ -20,9 +20,9 @@ class FakerServiceProviderTest extends PHPUnit_Framework_TestCase
     public function testRegisterServiceProvider()
     {
         $app = new Application();
-        $app->register(new FakerServiceProvider(), array(
+        $app->register(new FakerServiceProvider(), [
             'locale' => 'ro_RO',
-        ));
+        ]);
         $app->boot();
 
         $this->assertInstanceOf('Faker\\Generator', $app['faker']);
@@ -40,12 +40,12 @@ class FakerServiceProviderTest extends PHPUnit_Framework_TestCase
     public function testServiceProviders()
     {
         $app = new Application();
-        $app->register(new FakerServiceProvider(), array(
-            'faker.providers' => array(
+        $app->register(new FakerServiceProvider(), [
+            'faker.providers' => [
                 'CompanyNameGenerator\\FakerProvider',
                 'EmanueleMinotto\\Faker\\PlaceholdItProvider',
-            ),
-        ));
+            ],
+        ]);
         $app->boot();
 
         $this->assertInstanceOf('Faker\\Generator', $app['faker']);
