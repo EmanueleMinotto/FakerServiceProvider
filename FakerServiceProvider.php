@@ -21,7 +21,7 @@ class FakerServiceProvider implements ServiceProviderInterface
     public function register(Application $app)
     {
         $app['faker'] = null;
-        $app['faker.providers'] = array();
+        $app['faker.providers'] = [];
     }
 
     /**
