@@ -16,7 +16,7 @@
     ],
     "require": {
         "fzaninotto/faker": "~1.4",
-        "silex/silex": "~1"
+        "silex/silex": "~2"
     },
     "require-dev": {
         "emanueleminotto/faker-placehold-it-provider": "~1.0",
