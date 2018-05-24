@@ -4,21 +4,23 @@ namespace EmanueleMinotto\FakerServiceProvider;
 
 use Faker\Factory;
 use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Pimple\Container;
+use Pimple\ServiceProviderInterface;
+use Silex\Api\BootableProviderInterface;
 
 /**
  * A Faker service provider for Silex 1.
  *
  * @author Emanuele Minotto <minottoemanuele@gmail.com>
- *
- * @link http://silex.sensiolabs.org/doc/providers.html#creating-a-provider
+ * @author Matheus Marabesi <matheus.marabesi@gmail.com>
+ * @link https://silex.symfony.com/doc/2.0/providers.html#creating-a-provider
  */
-class FakerServiceProvider implements ServiceProviderInterface
+class FakerServiceProvider implements ServiceProviderInterface, BootableProviderInterface
 {
     /**
      * {@inheritdoc}
      */
-    public function register(Application $app)
+    public function register(Container $app)
     {
         $app['faker'] = null;
         $app['faker.providers'] = [];
@@ -29,12 +31,10 @@ class FakerServiceProvider implements ServiceProviderInterface
      */
     public function boot(Application $app)
     {
-        // generator instance
-        $app['faker'] = $app->share(function ($app) {
+        $app['faker'] = function ($app) {
             return Factory::create($app['locale']);
-        });
+        };
 
-        // third-party providers
         $providers = array_filter((array) $app['faker.providers'], function ($provider) {
             return class_exists($provider) && is_subclass_of($provider, 'Faker\\Provider\\Base');
         });

@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @author Emanuele Minotto <minottoemanuele@gmail.com>
- *
+ * @author Matheus Marabesi <matheus.marabesi@gmail.com>
  * @coversDefaultClass \EmanueleMinotto\FakerServiceProvider\FakerServiceProvider
  */
 class FakerServiceProviderTest extends PHPUnit_Framework_TestCase
@@ -41,11 +41,13 @@ class FakerServiceProviderTest extends PHPUnit_Framework_TestCase
     {
         $app = new Application();
         $app->register(new FakerServiceProvider(), [
+            'locale' => 'ro_RO',
             'faker.providers' => [
                 'CompanyNameGenerator\\FakerProvider',
                 'EmanueleMinotto\\Faker\\PlaceholdItProvider',
             ],
         ]);
+
         $app->boot();
 
         $this->assertInstanceOf('Faker\\Generator', $app['faker']);
@@ -68,6 +70,10 @@ class FakerServiceProviderTest extends PHPUnit_Framework_TestCase
     public function testRequest()
     {
         $app = new Application();
+        $app->register(new FakerServiceProvider(), [
+            'locale' => 'ro_RO',
+        ]);
+
         $app->register(new FakerServiceProvider());
 
         $app->get('/', function () use ($app) {
